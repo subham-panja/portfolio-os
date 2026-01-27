@@ -52,7 +52,7 @@ export const experiences: Experience[] = [
     id: "spring",
     company: "Spring Financial Inc.",
     role: "Senior Software Engineer & Tech Lead",
-    location: "Toronto, Canada (Remote)",
+    location: "Gurugram, India",
     period: "2023 - Present",
     description:
       "Architected 'Bloom' AI paywall system, lead CRM squad of 6 engineers, automated payment workflows reducing overhead by 90%.",
@@ -82,7 +82,7 @@ export const experiences: Experience[] = [
     id: "pixelmind",
     company: "Pixelmind IT Solutions",
     role: "Full Stack Developer",
-    location: "India",
+    location: "Bengalore, India",
     period: "2021 - 2022",
     description:
       "Re-architected backend to multi-tenant Flask/FastAPI. Built real-time chat with WebSockets.",
@@ -253,10 +253,33 @@ export interface AppDefinition {
     | "projects"
     | "techstack"
     | "contact"
-    | "finder";
+    | "finder"
+    | "terminal"
+    | "settings"
+    | "calendar"
+    | "notes"
+    | "mail"
+    | "photos"
+    | "calculator"
+    | "weather"
+    | "game";
 }
 
 export const apps: AppDefinition[] = [
+  {
+    id: "settings",
+    name: "Settings",
+    icon: "⚙️",
+    color: "#8E8E93",
+    type: "settings",
+  },
+  {
+    id: "terminal",
+    name: "Terminal",
+    icon: "💻",
+    color: "#333333",
+    type: "terminal",
+  },
   {
     id: "about",
     name: "About Me",
@@ -291,5 +314,54 @@ export const apps: AppDefinition[] = [
     icon: "📧",
     color: "#FF375F",
     type: "contact",
+  },
+  {
+    id: "calendar",
+    name: "Calendar",
+    icon: "📅",
+    color: "#FF375F",
+    type: "calendar",
+  },
+  {
+    id: "notes",
+    name: "Notes",
+    icon: "📝",
+    color: "#FFD60A",
+    type: "notes",
+  },
+  {
+    id: "mail",
+    name: "Mail",
+    icon: "✉️",
+    color: "#0A84FF",
+    type: "mail",
+  },
+  {
+    id: "photos",
+    name: "Photos",
+    icon: "📸",
+    color: "#BF5AF2",
+    type: "photos",
+  },
+  {
+    id: "calculator",
+    name: "Calculator",
+    icon: "🔢",
+    color: "#FF9F0A",
+    type: "calculator",
+  },
+  {
+    id: "weather",
+    name: "Weather",
+    icon: "☀️",
+    color: "#30D158",
+    type: "weather",
+  },
+  {
+    id: "game",
+    name: "Games",
+    icon: "🎮",
+    color: "#FF453A",
+    type: "game",
   },
 ];

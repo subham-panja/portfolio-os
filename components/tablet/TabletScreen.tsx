@@ -11,10 +11,21 @@ import ExperienceApp from "../apps/ExperienceApp";
 import ProjectsApp from "../apps/ProjectsApp";
 import TechStackApp from "../apps/TechStackApp";
 import ContactApp from "../apps/ContactApp";
+import TerminalApp from "../apps/TerminalApp";
+import SettingsApp from "../apps/SettingsApp";
+import CalendarApp from "../apps/CalendarApp";
+import NotesApp from "../apps/NotesApp";
+import MailApp from "../apps/MailApp";
+import PhotosApp from "../apps/PhotosApp";
+import CalculatorApp from "../apps/CalculatorApp";
+import WeatherApp from "../apps/WeatherApp";
+import GameCenterApp from "../apps/GameCenterApp";
+import { useThemeStore } from "@/lib/store/useThemeStore";
 
 export default function TabletScreen() {
   const [isLocked, setIsLocked] = useState(true);
   const [openApp, setOpenApp] = useState<AppDefinition | null>(null);
+  const { wallpaper } = useThemeStore();
 
   const handleAppClick = (app: AppDefinition) => {
     setOpenApp(app);
@@ -36,6 +47,24 @@ export default function TabletScreen() {
         return <TechStackApp />;
       case "contact":
         return <ContactApp />;
+      case "terminal":
+        return <TerminalApp />;
+      case "settings":
+        return <SettingsApp />;
+      case "calendar":
+        return <CalendarApp />;
+      case "notes":
+        return <NotesApp />;
+      case "mail":
+        return <MailApp />;
+      case "photos":
+        return <PhotosApp />;
+      case "calculator":
+        return <CalculatorApp />;
+      case "weather":
+        return <WeatherApp />;
+      case "game":
+        return <GameCenterApp />;
       default:
         return <div className="p-8 text-white/70">Coming soon...</div>;
     }
@@ -51,7 +80,7 @@ export default function TabletScreen() {
       <div
         className="h-screen w-screen overflow-hidden relative"
         style={{
-          backgroundImage: "url('/wallpaper-tablet.png')",
+          backgroundImage: `url('${wallpaper}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

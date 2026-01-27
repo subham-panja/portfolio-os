@@ -12,6 +12,7 @@ import MissionControl from "./MissionControl";
 import ClockWidget from "./ClockWidget";
 import ContextMenu from "./ContextMenu";
 import NotificationCenter from "./NotificationCenter";
+import { useThemeStore } from "@/lib/store/useThemeStore";
 import { apps, AppDefinition } from "@/lib/data";
 
 // App content components
@@ -20,6 +21,15 @@ import ExperienceApp from "../apps/ExperienceApp";
 import ProjectsApp from "../apps/ProjectsApp";
 import TechStackApp from "../apps/TechStackApp";
 import ContactApp from "../apps/ContactApp";
+import TerminalApp from "../apps/TerminalApp";
+import SettingsApp from "../apps/SettingsApp";
+import CalendarApp from "../apps/CalendarApp";
+import NotesApp from "../apps/NotesApp";
+import MailApp from "../apps/MailApp";
+import PhotosApp from "../apps/PhotosApp";
+import CalculatorApp from "../apps/CalculatorApp";
+import WeatherApp from "../apps/WeatherApp";
+import GameCenterApp from "../apps/GameCenterApp";
 
 interface OpenWindow {
   app: AppDefinition;
@@ -36,6 +46,8 @@ export default function Desktop() {
   const [isNotificationCenterOpen, setIsNotificationCenterOpen] =
     useState(false);
   const [isMissionControlOpen, setIsMissionControlOpen] = useState(false);
+
+  const { wallpaper } = useThemeStore();
 
   // Context Menu State
   const [contextMenu, setContextMenu] = useState({
@@ -97,15 +109,18 @@ export default function Desktop() {
     setActiveWindowId(null);
   };
 
-  const handleCloseWindow = (appId: string) => {
-    setOpenWindows((prev) => prev.filter((w) => w.app.id !== appId));
-    if (activeWindowId === appId) {
-      const remaining = openWindows.filter((w) => w.app.id !== appId);
-      setActiveWindowId(
-        remaining.length > 0 ? remaining[remaining.length - 1].app.id : null,
-      );
-    }
-  };
+  const handleCloseWindow = useCallback(
+    (appId: string) => {
+      setOpenWindows((prev) => prev.filter((w) => w.app.id !== appId));
+      if (activeWindowId === appId) {
+        const remaining = openWindows.filter((w) => w.app.id !== appId);
+        setActiveWindowId(
+          remaining.length > 0 ? remaining[remaining.length - 1].app.id : null,
+        );
+      }
+    },
+    [activeWindowId, openWindows],
+  );
 
   // Keyboard shortcuts
   const handleKeyDown = useCallback(
@@ -141,12 +156,10 @@ export default function Desktop() {
     },
     [
       activeWindowId,
-      openWindows,
-      isSpotlightOpen,
-      isControlCenterOpen,
       isMissionControlOpen,
       contextMenu,
       isNotificationCenterOpen,
+      handleCloseWindow,
     ],
   );
 
@@ -183,6 +196,24 @@ export default function Desktop() {
         return <TechStackApp />;
       case "contact":
         return <ContactApp />;
+      case "terminal":
+        return <TerminalApp />;
+      case "settings":
+        return <SettingsApp />;
+      case "calendar":
+        return <CalendarApp />;
+      case "notes":
+        return <NotesApp />;
+      case "mail":
+        return <MailApp />;
+      case "photos":
+        return <PhotosApp />;
+      case "calculator":
+        return <CalculatorApp />;
+      case "weather":
+        return <WeatherApp />;
+      case "game":
+        return <GameCenterApp />;
       default:
         return <div className="p-8 text-white/70">Coming soon...</div>;
     }
@@ -195,7 +226,7 @@ export default function Desktop() {
     <div
       className="h-screen w-screen overflow-hidden"
       style={{
-        backgroundImage: "url('/wallpaper-desktop.png')",
+        backgroundImage: `url('${wallpaper}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -219,15 +250,17 @@ export default function Desktop() {
       </div>
 
       {/* Desktop Icons - positioned top-right like macOS */}
-      <div className="absolute top-10 right-4 flex flex-col items-end gap-1 pt-4">
-        {apps.map((app, index) => (
-          <DesktopIcon
-            key={app.id}
-            app={app}
-            onClick={() => handleAppClick(app)}
-            index={index}
-          />
-        ))}
+      <div className="absolute top-10 right-4 bottom-24 flex flex-col flex-wrap-reverse content-start items-end gap-2 pt-4 pointer-events-none">
+        <div className="contents pointer-events-auto">
+          {apps.map((app, index) => (
+            <DesktopIcon
+              key={app.id}
+              app={app}
+              onClick={() => handleAppClick(app)}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Windows */}
@@ -299,6 +332,19 @@ export default function Desktop() {
         position={contextMenu.position}
         onClose={() => setContextMenu({ ...contextMenu, isOpen: false })}
       />
+
+      {/* Keyboard Shortcut Hint */}
+      <div className="absolute bottom-6 right-6 text-white/30 text-sm font-medium backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/5 pointer-events-none select-none">
+        Press{" "}
+        <span className="kbd bg-white/10 px-1.5 py-0.5 rounded text-white/50">
+          ⌘
+        </span>{" "}
+        +{" "}
+        <span className="kbd bg-white/10 px-1.5 py-0.5 rounded text-white/50">
+          K
+        </span>{" "}
+        to search
+      </div>
     </div>
   );
 }

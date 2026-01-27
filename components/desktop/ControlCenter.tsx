@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import MusicPlayer from "../shared/MusicPlayer";
 
 interface ControlCenterProps {
   isOpen: boolean;
@@ -11,7 +12,6 @@ interface ControlCenterProps {
 export default function ControlCenter({ isOpen, onClose }: ControlCenterProps) {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [brightness, setBrightness] = useState(100);
-  const [volume, setVolume] = useState(75);
   const [wifi, setWifi] = useState(true);
   const [bluetooth, setBluetooth] = useState(true);
   const [airDrop, setAirDrop] = useState(false);
@@ -192,32 +192,9 @@ export default function ControlCenter({ isOpen, onClose }: ControlCenterProps) {
                 </div>
               </div>
 
-              {/* Volume Slider */}
-              <div className="bg-white/10 rounded-xl p-4">
-                <div className="flex items-center gap-3">
-                  <svg
-                    className="w-5 h-5 text-white/70"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M3 9v6h4l5 5V4L7 9H3z" />
-                  </svg>
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={volume}
-                    onChange={(e) => setVolume(Number(e.target.value))}
-                    className="flex-1 h-6 bg-white/20 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow"
-                  />
-                  <svg
-                    className="w-6 h-6 text-white"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                  </svg>
-                </div>
+              {/* Music Player */}
+              <div className="mb-3">
+                <MusicPlayer />
               </div>
             </div>
           </motion.div>

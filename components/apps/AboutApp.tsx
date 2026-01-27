@@ -106,6 +106,21 @@ export default function AboutApp() {
             <div className="text-white/60 text-sm">/subham-panja</div>
           </div>
         </a>
+
+        <a
+          href="https://drive.google.com/file/d/1icWh6kDaFBDcKwSlfIJetvjzQpyblWRZ/view"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors"
+        >
+          <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-xl">
+            📄
+          </div>
+          <div>
+            <div className="text-white font-medium">Resume</div>
+            <div className="text-white/60 text-sm">View Resume</div>
+          </div>
+        </a>
       </motion.div>
     </div>
   );

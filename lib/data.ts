@@ -34,8 +34,8 @@ export interface Contact {
 
 export const profileData = {
   name: "Subham Panja",
-  title: "Senior Software Engineer & Technical Lead",
-  bio: "Results-driven Engineering Leader with 5+ years of experience building scalable, AI-powered applications. Expert in Python, Full-Stack Development, and Cloud-Native Architectures. Based in Gurgaon, India.",
+  title: "Senior Software Engineer & Engineering Leader",
+  bio: "Results-driven Senior Software Engineer & Engineering Leader with 5+ years of experience building scalable, AI-powered applications. Expert in Python (Flask, FastAPI, Django), full-stack development, and cloud-native architectures.",
   stats: [
     { label: "Years Exp", value: "5+" },
     { label: "Efficiency Gains", value: "40%" },
@@ -51,89 +51,62 @@ export const experiences: Experience[] = [
   {
     id: "spring",
     company: "Spring Financial Inc.",
-    role: "Senior Software Engineer & Tech Lead",
-    location: "Gurugram, India",
-    period: "2023 - Present",
+    role: "Senior Software Engineer & Technical Lead",
+    location: "Gurgaon, India",
+    period: "Sep 2024 - Present",
     description:
-      "Architected 'Bloom' AI paywall system, lead CRM squad of 6 engineers, automated payment workflows reducing overhead by 90%.",
+      "Architected 'Bloom' AI paywall ($50K+ ARR) and led CRM squad. Automated payment workflows reducing overhead by 90%.",
     highlights: [
-      "Designed AI-enhanced paywall generating $50K+ ARR",
-      "Lead cross-functional CRM squad of 6 engineers",
-      "Automated payment workflows with 90% cost reduction",
-      "Implemented event-driven architecture with Kafka",
+      "Architected and launched Bloom, an AI-enhanced paywall system generating $50K+ ARR",
+      "Automated payment workflows, reducing manual operational overhead by 90%",
+      "Lead the CRM Engineering Squad of 6 engineers, driving Agile ceremonies and sprint planning",
+      "Mentored engineers, improving team velocity by 30% through code reviews and coaching",
+      "Designed scalable microservices architecture on AWS with Flask, PostgreSQL, and Redis",
     ],
   },
   {
     id: "atlas",
     company: "AtlasX Inc.",
     role: "Software Developer",
-    location: "New York (Remote)",
-    period: "2022 - 2023",
+    location: "New York, USA (Remote)",
+    period: "May 2023 - Mar 2024",
     description:
       "Migrated AngularJS to Next.js/Remix (50% perf boost). Built AI-driven audit system with Django.",
     highlights: [
-      "Migrated legacy AngularJS to Next.js/Remix",
-      "Achieved 50% performance improvement",
-      "Built AI-driven audit logging system",
-      "Implemented real-time data pipelines",
+      "Migrated legacy AngularJS application to Next.js/Remix, improving page load performance by 50%",
+      "Built a custom AI-driven audit and revert system using Django and Python",
+      "Developed data ingestion pipelines processing 10,000+ records daily with automated validation",
+      "Collaborated to integrate ML models for predictive analytics and deal scoring",
+      "Implemented TDD achieving 85%+ code coverage and reducing production bugs by 40%",
     ],
   },
   {
     id: "pixelmind",
-    company: "Pixelmind IT Solutions",
-    role: "Full Stack Developer",
-    location: "Bengalore, India",
-    period: "2021 - 2022",
+    company: "Pixelmind IT Solution",
+    role: "Software Developer",
+    location: "Bangalore, India",
+    period: "Feb 2020 - Apr 2023",
     description:
       "Re-architected backend to multi-tenant Flask/FastAPI. Built real-time chat with WebSockets.",
     highlights: [
-      "Re-architected to multi-tenant architecture",
-      "Built real-time chat using WebSockets",
-      "Implemented Flask/FastAPI microservices",
-      "Designed scalable database schemas",
+      "Re-architected backend from single-tenant to multi-tenant using Flask and FastAPI (30% faster API)",
+      "Pioneered an AI-powered feature flag system with intelligent rollout capabilities",
+      "Implemented real-time chat system using WebSockets and Redis for 30K+ members",
+      "Led technical design sessions and mentored 2 junior developers, accelerating onboarding by 40%",
     ],
   },
   {
     id: "birdie",
     company: "Birdie Health Care",
-    role: "Software Engineer",
-    location: "London (Remote)",
-    period: "2020 - 2021",
+    role: "Software Developer",
+    location: "London, UK (Remote)",
+    period: "Jan 2019 - Jan 2020",
     description:
       "Engineered i18n strategy & Kafka event-driven microservices for healthcare platform.",
     highlights: [
-      "Engineered comprehensive i18n strategy",
-      "Built Kafka event-driven microservices",
-      "HIPAA-compliant healthcare solutions",
-      "Served 50K+ active patients",
-    ],
-  },
-  {
-    id: "pixlbea",
-    company: "Pixlbea Technologies",
-    role: "Software Developer",
-    location: "Noida, India (Remote)",
-    period: "2021 - 2022",
-    description:
-      "Designed LLD/HLD for multi-vendor e-commerce backend and optimized MongoDB schemas.",
-    highlights: [
-      "Designed LLD and HLD documentation",
-      "Optimized MongoDB schemas (35% faster queries)",
-      "Implemented automated testing on AWS EC2",
-    ],
-  },
-  {
-    id: "webarion",
-    company: "Webarion Technologies",
-    role: "Frontend Developer",
-    location: "Kolkata, India",
-    period: "2020",
-    description:
-      "Contributed to social media app development using React.js, Redux, and Node.js.",
-    highlights: [
-      "Developed social media application features",
-      "Created reusable UI component library",
-      "Accelerated feature development",
+      "Engineered comprehensive i18n/l10n strategy enabling expansion to 15+ international markets",
+      "Built event-driven microservices with Kafka, handling 100K+ daily healthcare events",
+      "Implemented micro-frontend architecture reducing release coordination overhead by 50%",
     ],
   },
 ];
@@ -357,6 +330,7 @@ export const apps: AppDefinition[] = [
     color: "#30D158",
     type: "weather",
   },
+  /*
   {
     id: "game",
     name: "Games",
@@ -364,4 +338,5 @@ export const apps: AppDefinition[] = [
     color: "#FF453A",
     type: "game",
   },
+  */
 ];

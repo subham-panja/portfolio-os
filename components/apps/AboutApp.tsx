@@ -108,7 +108,7 @@ export default function AboutApp() {
         </a>
 
         <a
-          href="https://drive.google.com/file/d/1mVZM9wdmgeOEoKvPu9sss0FY_l1Q-wzF/view?usp=sharing"
+          href="https://drive.google.com/file/d/1lmHsg8JQ9AZmO3fFjh41Wlq8SOGpifOr/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors"
